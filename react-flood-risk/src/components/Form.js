@@ -11,6 +11,8 @@ export default class Form extends React.Component{
 
     handleChange = event => {
         const isCheckbox = event.target.type === 'checkbox';
+        //clear error
+        this.setState({postcodeError: ""}); // added as the state is out of sync below
         this.setState({
             [event.target.name]: isCheckbox ? event.target.checked : event.target.value
         });
@@ -44,7 +46,7 @@ export default class Form extends React.Component{
     }
 
     render(){
-        const {postcode} = this.state
+        const {postcode, postcodeError} = this.state
         return (
             <form onSubmit={this.handleSubmit}>
                 <p>Postcode is: {postcode}</p>
@@ -52,12 +54,12 @@ export default class Form extends React.Component{
                     <label>Enter Postcode:</label>
                     <input 
                     name = "postcode"
-                    value={this.state.postcode}
+                    value={postcode}
                     onChange={this.handleChange}
                     />
                 </div>
-                { this.state.postcodeError ? (
-                <div style = {{ color: "red"}}>{this.state.postcodeError}</div>
+                { postcodeError ? (
+                <div style = {{ color: "red"}}>{postcodeError}</div>
                 ) : null
                 }
                 <button type = "submit">Submit</button>

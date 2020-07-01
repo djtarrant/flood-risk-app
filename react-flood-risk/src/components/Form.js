@@ -49,7 +49,6 @@ class Form extends React.Component{
         const {postcode, postcodeError} = this.state
         return (
             <form onSubmit={this.handleSubmit}>
-                <p>Postcode is: {postcode}</p>
                 <div>
                     <label>Enter Postcode:</label>
                     <input 

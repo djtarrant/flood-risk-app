@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import Form from "./components/Form";
+import FloodRisk from "./components/FloodRisk";
 
 class App extends Component {
   state = {
@@ -12,6 +13,7 @@ class App extends Component {
       <div className="App">
         <h1>Flood Risk By Postcode</h1>
         <Form></Form>
+        <FloodRisk></FloodRisk>
       </div>
     );
   }

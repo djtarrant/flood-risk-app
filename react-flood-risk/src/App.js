@@ -5,15 +5,21 @@ import FloodRisk from "./components/FloodRisk";
 
 class App extends Component {
   state = {
-    
+    postcode: "CB42UP"
   }
+
+  handleChange(newPostcode) {
+    this.setState({
+        postcode: newPostcode
+    });
+  };
 
   render(){
     return (
       <div className="App">
         <h1>Flood Risk By Postcode</h1>
-        <Form></Form>
-        <FloodRisk></FloodRisk>
+        <Form changePostcode={this.handleChange.bind(this)} initialPostcode={this.state.postcode}></Form>
+        <FloodRisk postcode={this.state.postcode}></FloodRisk>
       </div>
     );
   }

@@ -4,18 +4,13 @@ class Form extends React.Component{
     constructor(props){
         super(props)
         this.state = {
-            postcode: "",
+            postcode: props.initialPostcode,
             postcodeError: ""
         }
     }
 
     handleChange = event => {
-        const isCheckbox = event.target.type === 'checkbox';
-        //clear error
-        this.setState({postcodeError: ""}); // added as the state is out of sync below
-        this.setState({
-            [event.target.name]: isCheckbox ? event.target.checked : event.target.value
-        });
+        this.handleSubmit(event);
     };
 
     validate = () => {
@@ -35,11 +30,17 @@ class Form extends React.Component{
 
     handleSubmit = event => {
         event.preventDefault();
+        console.log(this.state, event.target.value);
         const isValid = this.validate();
         if(isValid){
-            //clear form
+            console.log("Input is valid");
+            this.props.changePostcode(this.state.postcode);
+            //clear error
             this.setState({postcodeError: ""});
-            console.log(this.state); // seems to log before above setState - not sure why
+            this.setState({
+                postcode: event.target.value
+            });
+            console.log(this.state, event.target.value);
         }else{
             console.log("There was a validation error");
         }

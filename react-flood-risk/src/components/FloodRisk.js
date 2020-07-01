@@ -20,10 +20,10 @@ class FloodRisk extends React.Component{
         fetch(url)
         .then((response) => {
             // Add this check and throw an error if it fails
-            if (!response.ok) {
-                throw Error(response.statusText);
-            }
             console.log(response);
+            if (!response.ok) {
+                throw Error(`There was an error: ${response.statusText}`);
+            }
             return response.json();
         })
         .then((data) => {
@@ -56,7 +56,7 @@ class FloodRisk extends React.Component{
         <div>
             {
             loading
-            ? "Loading..."
+            ? `Fetching API call for ${postcode}...`
             : <div>
                 <h2>Information about Postcode: {postcode}</h2>
                     <div className="location">

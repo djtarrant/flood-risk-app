@@ -21,5 +21,5 @@ I wanted to learn to use REACT to consume an API and build a front end for it, p
 Add the ability for the FloodRisk Component  to pick up nearby data. This will need a new API endpoint to generate a list of nearby postcodes based on a postcode input. These nearby postcodes would then have data printed for them via the original flood risk API call.
 
 
-## attributions
+## Attributions
 Contains Environment Agency data licensed under the [Open Government Licence v3.0] (http://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/)

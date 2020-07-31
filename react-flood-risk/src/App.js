@@ -5,7 +5,7 @@ import FloodRisk from "./components/FloodRisk";
 
 class App extends Component {
   state = {
-    postcode: "CB42UP"
+    postcode: "M11AE"//example postcode
   }
 
   handleChange(newPostcode) {
